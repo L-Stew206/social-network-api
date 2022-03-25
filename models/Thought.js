@@ -72,11 +72,13 @@ thoughtSchema
     .virtual('reactionCount')
     // Getter
     .get(function () {
-        return `${this.reaction.length}`;
-    })
+        return this.reaction.length
+    });
 
 // Initialize our User model
-const Thought = mongoose.model('Thought', thoughtSchema);
+//const Thought = mongoose.model('Thought', thoughtSchema);
+const Thought = model('Thought', thoughtSchema);
+
 
 
 module.exports = Thought;

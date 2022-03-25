@@ -53,7 +53,7 @@ userSchema
     })
 
 // Using mongoose.model() to compile a model based on the schema
-const User = mongoose.model('User', userSchema);
+const User = model('User', userSchema);
 
 
 
