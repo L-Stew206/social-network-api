@@ -51,7 +51,7 @@ const thoughtSchema = new Schema(
         },
 
 
-        usernmae: {
+        username: {
             type: String,
             required: true,
         },

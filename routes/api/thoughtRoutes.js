@@ -4,7 +4,7 @@ const Thought = require('../../models/Thought');
 //GET all Thoughts
 router.get("/", async (req, res) => {
     try {
-        const thoughtData = await Thought.findAll();
+        const thoughtData = await Thought.find();
         res.status(200).json(thoughtData);
 
     } catch (err) {
@@ -14,9 +14,9 @@ router.get("/", async (req, res) => {
 });
 
 //GET a single Thought by ID 
-router.get("/thought:Id", async (req, res) => {
+router.get("/:thoughtId", async (req, res) => {
     try {
-        const thoughtData = await User.findById(
+        const thoughtData = await Thought.findById(
             {
                 _id: req.params.thoughtId,
             }
@@ -41,7 +41,7 @@ router.post("/",
   });
 
 // UPDATE a Thought by ID 
-router.put(":userId", async (req, res) => {
+router.put(":thoughtId", async (req, res) => {
     try {
       const updatedThought = await Thought.findOneAndUpdate(
         {

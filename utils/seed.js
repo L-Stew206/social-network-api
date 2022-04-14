@@ -16,7 +16,7 @@ mongoose
 
 const seedUsers = [
   {
-    username: "batman2022",
+    username: "batman8888",
     email: "b_wayne@gmail.com",
   },
   {
@@ -28,7 +28,7 @@ const seedUsers = [
 const seedThoughts = [
   {
     thoughtText: "How do the Hulks shorts not rip apart.",
-    username: "batman2022",
+    username: "batman8888",
     reactions: {
       reactionBody: "I have no idea!",
       username: "superman7",

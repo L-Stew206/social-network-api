@@ -1,10 +1,10 @@
 const router = require('express').Router();
-const User = require('../../models/User');
+const {User} = require('../../models');
 
 //GET all users
 router.get("/", async (req, res) => {
     try {
-        const userData = await User.findAll();
+        const userData = await User.find();
         res.status(200).json(userData);
 
     } catch (err) {
@@ -14,7 +14,7 @@ router.get("/", async (req, res) => {
 });
 
 //GET a single user by ID 
-router.get("/user:Id", async (req, res) => {
+router.get("/:userId", async (req, res) => {
     try {
         const userData = await User.findById(
             {
@@ -41,7 +41,7 @@ router.post("/",
   });
 
 // Update a User by ID 
-router.put(":userId", async (req, res) => {
+router.put("/:userId", async (req, res) => {
     try {
       const updatedUser = await User.findOneAndUpdate(
         {
@@ -64,7 +64,7 @@ router.put(":userId", async (req, res) => {
   });
 
   // DELETE a User by ID 
-router.delete(":userId", async (req, res) => {
+router.delete("/:userId", async (req, res) => {
   try {
     const userData = await User.deleteOne(
       {
