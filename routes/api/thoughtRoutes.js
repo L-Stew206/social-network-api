@@ -5,6 +5,7 @@ const Thought = require('../../models/Thought');
 router.get("/", async (req, res) => {
     try {
         const thoughtData = await Thought.find();
+        console.log(thoughtData)
         res.status(200).json(thoughtData);
 
     } catch (err) {
@@ -41,7 +42,7 @@ router.post("/",
   });
 
 // UPDATE a Thought by ID 
-router.put(":thoughtId", async (req, res) => {
+router.put("/:thoughtId", async (req, res) => {
     try {
       const updatedThought = await Thought.findOneAndUpdate(
         {
@@ -55,6 +56,7 @@ router.put(":thoughtId", async (req, res) => {
         res.status(404).json({ message: "NO thought with this ID found." });
         return;
       }
+      console.log(`${updatedThought} UPDATED.`);
       res.status(200).json(updatedThought);
     } catch (err) {
       console.error(err);
@@ -63,7 +65,7 @@ router.put(":thoughtId", async (req, res) => {
   });
 
   // DELETE a Thought by ID 
-router.delete(":thoughtId", async (req, res) => {
+router.delete("/:thoughtId", async (req, res) => {
   try {
     const thoughtData = await Thought.deleteOne(
       {

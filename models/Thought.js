@@ -38,7 +38,7 @@ const thoughtSchema = new Schema(
     {
         thoughtText: {
             type: String,
-            requires: true,
+            required: true,
             minlength: 1,
             maxlength: 280,
         },
@@ -72,7 +72,7 @@ thoughtSchema
     .virtual('reactionCount')
     // Getter
     .get(function () {
-        return this.reaction.length
+        return this.reactions.length
     });
 
 // Initialize our User model
