@@ -15,22 +15,33 @@ const reactionSchema = new Schema(
         reactionBody: {
             type: String,
             required: true,
-            minlength: 1,
-            maxlength: 280,
-        },
-        
-        username: {
-            type: String, 
+            //minlength: 1,
+            maxlength: 280
+        }, username: {
+            type: String,
             required: true,
-        },
+          },
+        
+        // username: {
+        //     type: String, 
+        //     required: true,
+        // },
 
         createdAt: {
             type: Date,
             default: Date.now,
             get: (timestamp) => new Date(timestamp).toLocaleDateString(), 
 
-        } 
-});
+        },
+    },
+    {
+        toJSON: {
+          getters: true,
+        },
+        id: false,
+      }
+    );
+
 
 // Create a new instance of the Mongoose schema to define shape of each document
 //const thoughtSchema = new mongoose.Schema( which way ??

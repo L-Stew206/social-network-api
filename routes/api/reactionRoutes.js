@@ -17,7 +17,7 @@ router.post("/:thoughtId/reactions",
   });
 
   // DELETE a reaction from reaction's ID 
-router.delete(":thoughtId/reactions/:reactionId", async (req, res) => {
+router.delete("/:thoughtId/reactions/:reactionId", async (req, res) => {
   try {
     const reactionData = await Thought.findOneAndUpdate(
       {

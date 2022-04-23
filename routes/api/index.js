@@ -12,6 +12,6 @@ const reactionRoutes = require("./reactionRoutes");
 router.use("/users", friendRoutes);
 router.use("/users", userRoutes);
 router.use("/thoughts", thoughtRoutes);
-// router.use("/thoughts", reactionRoutes);
+router.use("/thoughts", reactionRoutes);
 
 module.exports = router;
